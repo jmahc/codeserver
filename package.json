@@ -1,0 +1,25 @@
+{
+  "name": "codeserver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An extension of the Docker image, codercom/codeserver, that adds packages, fonts, assets, and more.",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker build -f ./Dockerfile -t localcodeserver .",
+    "start": "docker run -d -t -p 127.0.0.1:8443:8443 localcodeserver code-server --allow-http --password=jordan",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "code-server",
+    "docker",
+    "extension",
+    "image",
+    "vscode"
+  ],
+  "author": {
+    "email": "jordanmcardle@gmail.com",
+    "name": "Jordan McArdle",
+    "url": "https://mcardle.tech/"
+  },
+  "license": "NOLICENSE"
+}
