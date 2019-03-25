@@ -8,15 +8,15 @@ While a great starting place, the [codercom/codeserver] image does not contain _
 
 Referencing the `package.json` file included in this repository and assuming that you have [installed Docker] on the machine, you can execute the following commands.
 
-- `npm run build` builds the [Docker] image
-- `npm run start` runs the [Docker] image in a new container
+- Build the [Docker] image: `npm run build`
+- Runs the [Docker] image in a new container: `npm run start`
 
 ## Docker-Compose
 
 To utilize [Docker compose] with this image, you will want a [Docker plugin] called [local-persist]. The documentation for setting up the plugin can be found in that repository, however, if you are using this repository on a Linux machine, execute the following:
 
-- `curl -fsSL https://raw.githubusercontent.com/CWSpear/local-persist/master/scripts/install.sh | sudo bash` will install the plugin
-- `docker volume create -d local-persist -o mountpoint=/path/to/volume/codeserver_data --name=codeserver_data` will create the volume named **codeserver_data**
+- Install the plugin: `curl -fsSL https://raw.githubusercontent.com/CWSpear/local-persist/master/scripts/install.sh | sudo bash`
+- Create a volume named **codeserver_data**: `docker volume create -d local-persist -o mountpoint=/path/to/volume/codeserver_data --name=codeserver_data`
 
 With the newly created `codeserver_data` volume, you are just about there. For permissions reasons, I copied the [letsencrypt] certificates into the same directory as the `docker-compose.yml` and `Dockerfile` files.
 
@@ -54,6 +54,7 @@ With all that in hand, you can spin up the container with `docker-compose up -d`
 
 [codercom/codeserver]: https://github.com/codercom/code-server
 [docker]: https://www.docker.com/
+[docker compose]: https://docs.docker.com/compose/
 [docker plugin]: https://docs.docker.com/engine/extend/plugin_api/
 [installed docker]: https://docs.docker.com/install/
 [local-persist]: https://github.com/CWSpear/local-persist
