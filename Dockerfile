@@ -46,3 +46,6 @@ RUN npm config set init.author.name "Jordan McArdle" \
   && npm config set init.author.email "jordanmcardle@gmail.com" \
   && npm config set init.author.url "https://mcardle.tech/" \
   && npm config set init.license "NOLICENSE"
+
+ENV NEWTEST myNewTest
+COPY test.txt .
