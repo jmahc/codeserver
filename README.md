@@ -50,14 +50,6 @@ volumes:
 
 With all that in hand, you can spin up the container with `docker-compose up -d`. Enjoy!
 
-## Docker Publish
-
-Ensure that you are logged in via `docker login -u=USER_NAME --password=PASSWORD`.
-
-Tag the image: `docker tag image-name:tag-name jmahc/codeserver:latest`
-
-Publish/push the image: `docker push jmahc/codeserver`
-
 ---
 
 [codercom/codeserver]: https://github.com/codercom/code-server
