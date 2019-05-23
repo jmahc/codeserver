@@ -18,13 +18,14 @@ ENV PATH $PATH:/root/n/bin
 RUN npm i -g prettier eslint
 
 # Font name and location on Google Drive.
+# TODO: Move to `export GDRIVE_FILENAME=OperatorMonoCollection.zip;` in the script
 ARG GDRIVE_FILENAME=OperatorMonoCollection.zip
 ARG GDRIVE_FILEID=0B7Nsk2zJ4jK8UG82bHZSRTItYTA
 
 # Download the fonts from Google Drive.
-RUN curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${GDRIVE_FILEID}" > /dev/null \
-  && curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${GDRIVE_FILEID}" -o ${GDRIVE_FILENAME} \
-  && rm -rf /root/project/cookie
+RUN curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=0B7Nsk2zJ4jK8UG82bHZSRTItYTA" > /dev/null \
+  && curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=0B7Nsk2zJ4jK8UG82bHZSRTItYTA" -o OperatorMonoCollection.zip \
+  && rm -rf ./cookie
 
 # Move the downloaded zip file to the `/root/downloads` directory.
 RUN mv ${GDRIVE_FILENAME} /root/downloads \
